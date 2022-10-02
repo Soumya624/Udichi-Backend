@@ -4,11 +4,13 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const app = express();
 const signup = require('./routes/signup');
+// const login = require('./routes/login');
 
 app.use(bodyParser.json());
 app.use(cors());
 
 app.use('/signup', signup);
+// app.use('/login', login);
 
 app.get('/', (req,res)=>{
     res.send('We are on Backend Server');
