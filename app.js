@@ -3,14 +3,18 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const app = express();
-const signup = require('./routes/signup');
-// const login = require('./routes/login');
+const signup = require('./routes/Signup/index');
+const login = require('./routes/Login/index');
+const user_info = require('./routes/User/index') 
 
 app.use(bodyParser.json());
 app.use(cors());
 
 app.use('/signup', signup);
-// app.use('/login', login);
+app.use('/login',login)
+app.use('/user',user_info)
+
+
 
 app.get('/', (req,res)=>{
     res.send('We are on Backend Server');
