@@ -6,6 +6,11 @@ const app = express();
 const signup = require('./routes/Signup/index');
 const login = require('./routes/Login/index');
 const user_info = require('./routes/User/index') 
+const questions = require('./routes/Questions/index')
+const options = require('./routes/Options/index')
+const question_group = require('./routes/Question_Group/index')
+const test = require('./routes/Test/index')
+
 
 app.use(bodyParser.json());
 app.use(cors());
@@ -13,7 +18,11 @@ app.use(cors());
 app.use('/signup', signup);
 app.use('/login',login)
 app.use('/user',user_info)
+app.use('/questions',questions)
+app.use('/options',options)
 
+app.use('/question-group',question_group)
+app.use('/test',test)
 
 
 app.get('/', (req,res)=>{
