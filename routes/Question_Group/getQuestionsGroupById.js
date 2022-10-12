@@ -5,10 +5,7 @@ const getQuestionsGroupById = async (req, res) => {
 	try {
 		if (mongoose.Types.ObjectId.isValid(req.params.id) === false)
 			return res.status(500).send("Invalid Id");
-		let question_data = await Question_Group.findById(req.params.id);
-
-		if (question_data === null) res.status(400).send("Not Found");
-		question_data.populate({
+		let question_data = await Question_Group.findById(req.params.id).populate({
 			path: "questions",
 			ref: "question_schema",
 			populate: {
@@ -16,6 +13,8 @@ const getQuestionsGroupById = async (req, res) => {
 				ref: "options_schema",
 			},
 		});
+
+		if (question_data === null) res.status(400).send("Not Found");
 		return res.status(200).send(question_data);
 	} catch (error) {
 		// console.log(error)

@@ -10,7 +10,8 @@ const questions = require('./routes/Questions/index')
 const options = require('./routes/Options/index')
 const question_group = require('./routes/Question_Group/index')
 const test = require('./routes/Test/index')
-
+const candidate_group = require('./routes/CandidatesGroup/index')
+const candidates = require('./routes/Candidates/index')
 
 app.use(bodyParser.json());
 app.use(cors());
@@ -20,10 +21,10 @@ app.use('/login',login)
 app.use('/user',user_info)
 app.use('/questions',questions)
 app.use('/options',options)
-
 app.use('/question-group',question_group)
 app.use('/test',test)
-
+app.use('/candidate_group',candidate_group)
+app.use('/candidate',candidates)
 
 app.get('/', (req,res)=>{
     res.send('We are on Backend Server');
