@@ -42,6 +42,18 @@ const candidateSchema = mongoose.Schema({
 		ref: "candidates_group_schema",
 		required: true,
 	},
+	alloted_test: [
+		{
+			type: Schema.Types.ObjectId,
+			ref: "test_schema",
+		},
+	],
+	attempted_test : [
+		{
+			type : Schema.Types.ObjectId,
+			ref : "attempt_group_schema"
+		}
+	]
 });
 
 module.exports = mongoose.model("candidate_schema", candidateSchema);

@@ -28,6 +28,15 @@ const TestSchema = new Schema({
 		type: Number,
 		required: true,
 	},
+	number_of_attempts :{
+		type : Number
+	},
+	candidates_groups : [
+		{
+			type : Schema.Types.ObjectId,
+			ref : "candidates_group_schema"
+		}
+	]
 });
 
 module.exports = mongoose.model("test_schema", TestSchema);
