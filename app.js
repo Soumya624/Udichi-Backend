@@ -30,7 +30,9 @@ app.get('/', (req,res)=>{
     res.send('We are on Backend Server');
 });
 
-mongoose.connect('mongodb+srv://user1:hH0daYK4xW4qsDl9@cluster0.gco9idg.mongodb.net/?retryWrites=true&w=majority', ()=>{
+//mongodb+srv://user1:hH0daYK4xW4qsDl9@cluster0.gco9idg.mongodb.net/?retryWrites=true&w=majority
+
+mongoose.connect('mongodb://localhost:27017/udichi', ()=>{
     console.log('Connected to MongoDB');
 })
 

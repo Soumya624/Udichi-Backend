@@ -44,13 +44,13 @@ const candidateSchema = mongoose.Schema({
 	},
 	alloted_test: [
 		{
-			type: Schema.Types.ObjectId,
+			type: mongoose.Schema.Types.ObjectId,
 			ref: "test_schema",
 		},
 	],
 	attempted_test : [
 		{
-			type : Schema.Types.ObjectId,
+			type : mongoose.Schema.Types.ObjectId,
 			ref : "attempt_group_schema"
 		}
 	]
