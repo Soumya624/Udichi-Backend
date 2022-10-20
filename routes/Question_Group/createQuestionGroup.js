@@ -17,9 +17,11 @@ const createQuestionGroup = async (req, res) => {
 				return res.status(201).send(data);
 			})
 			.catch((error) => {
+				console.log(error)
 				return res.status(500).send(error);
 			});
 	} catch (error) {
+		console.log(error)
 		return res.status(500).send(error);
 	}
 };
