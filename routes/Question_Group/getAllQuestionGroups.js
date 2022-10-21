@@ -5,10 +5,6 @@ const getAllQuestionGroups = async (req, res) => {
 		let question_group = await Question_Group.find({}).populate({
 			path: "questions",
 			model: "question_schema",
-			populate: {
-				path: "options",
-				ref: "options_schema",
-			},
 		});
 		res.status(200).send(question_group);
 	} catch (error) {
