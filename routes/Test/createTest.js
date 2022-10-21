@@ -30,7 +30,7 @@ const createTest = async (req, res) => {
 				return res.status(500).send(err);
 			});
 	} catch (error) {
-		res.status(500).send(error);
+		res.status(500).send("Error");
 	}
 };
 

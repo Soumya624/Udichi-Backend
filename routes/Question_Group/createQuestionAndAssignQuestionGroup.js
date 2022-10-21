@@ -2,11 +2,9 @@ const Question_Group = require("../../models/QuestionsGroup");
 const Questions = require("../../models/Questions");
 const Options = require("../../models/Options");
 const createQuestionAndAssignQuestionGroup = async (req, res) => {
-	console.log("asmdlaksdnl")
 	try {
 		let question = req.body.question;
 		let options_list = question.options;
-		console.log(options_list)
 		let option_list_id = [];
 		for (let op of options_list) {
 			let option = await Options(op);
