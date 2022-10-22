@@ -1,8 +1,13 @@
 const AttemptSchemaGroup = require("../../models/AttemptsGroupSchema");
 
-const editAttemptsGroup = async (req, res) => {
+const addAttemptsToGroup = async (req, res) => {
+	console.log(req.body)
 	try {
-		AttemptSchemaGroup.findByIdAndUpdate(req.params.id, req.body, {
+		AttemptSchemaGroup.findByIdAndUpdate(req.params.id, {
+            $addToSet : {
+                attempts_submitted : req.body.attempts_submitted
+            }
+        }, {
 			new: true,
 		})
 			.then((data) => {
@@ -18,4 +23,4 @@ const editAttemptsGroup = async (req, res) => {
 	}
 };
 
-module.exports = editAttemptsGroup;
+module.exports = addAttemptsToGroup;

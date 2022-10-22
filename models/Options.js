@@ -13,6 +13,10 @@ const Options_Schema = new Schema({
     is_correct : {
         type : Boolean,
         required : true
+    },
+    is_checked : {
+        type : Boolean,
+        default : false
     }
 })
 

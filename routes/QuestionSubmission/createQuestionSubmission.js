@@ -6,9 +6,7 @@ const createQuestionSubmission = async (req, res) => {
 		question_submission_schema
 			.save()
 			.then((data) => {
-				res.status(200).send({
-					data,
-				});
+				res.status(200).send(data);
 			})
 			.catch((err) => {
 				res.status(500).json(err.message);

@@ -29,7 +29,8 @@ const TestSchema = new Schema({
 		required: true,
 	},
 	number_of_attempts :{
-		type : Number
+		type : Number,
+		default : 1
 	},
 	candidates_groups : [
 		{
