@@ -7,11 +7,13 @@ const createAttempts = require("./createAttempts");
 const createAttemptsGroup = require("./createAttemptsGroup");
 const editAttempts = require("./editAttempts");
 const editAttemptsGroup = require("./editAttemptsGroup");
+const getAttemptsById = require("./getAttemptsById");
 
+router.get("/attempt/:id/:candidate", getAttemptsById);
 router.get("/group/:candidate/:test", checkAttemptGroup);
-router.patch("/groups/:id",editAttemptsGroup)
-router.patch("/add/:id",addAttemptsToGroup)
-router.patch("/:id",editAttempts)
+router.patch("/groups/:id", editAttemptsGroup);
+router.patch("/add/:id", addAttemptsToGroup);
+router.patch("/:id", editAttempts);
 router.post("/", createAttempts);
 router.post("/create-group", createAttemptsGroup);
 
