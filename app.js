@@ -1,6 +1,8 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const path = require("path");
 const bodyParser = require("body-parser");
+const multer = require("multer");
 const cors = require("cors");
 const app = express();
 const signup = require("./routes/Signup/index");
@@ -12,8 +14,9 @@ const question_group = require("./routes/Question_Group/index");
 const test = require("./routes/Test/index");
 const candidate_group = require("./routes/CandidatesGroup/index");
 const candidates = require("./routes/Candidates/index");
-const question_submission = require("./routes/QuestionSubmission/index")
-const attempt_submission = require("./routes/AttemptsSubmission/index")
+const question_submission = require("./routes/QuestionSubmission/index");
+const attempt_submission = require("./routes/AttemptsSubmission/index");
+
 
 app.use(bodyParser.json());
 app.use(cors());
@@ -27,8 +30,8 @@ app.use("/question-group", question_group);
 app.use("/test", test);
 app.use("/candidate_group", candidate_group);
 app.use("/candidate", candidates);
-app.use("/question_submission",question_submission)
-app.use('/attempts',attempt_submission)
+app.use("/question_submission", question_submission);
+app.use("/attempts", attempt_submission);
 app.get("/", (req, res) => {
 	res.send("We are on Backend Server");
 });
