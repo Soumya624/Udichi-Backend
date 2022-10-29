@@ -7,6 +7,7 @@ const createAttempts = async (req, res) => {
 			res.status(500).json(err);
 		}
 		try {
+			console.log(req.file)
 			let attempt_schema = await AttemptSchema(req.body);
 			attempt_schema.zip_files = req.file
 			attempt_schema

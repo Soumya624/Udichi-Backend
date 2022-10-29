@@ -1,17 +1,26 @@
 const AttemptSchema = require("../../models/Attempts");
-const upload = require('./uploadMulter')
+const upload = require("./uploadMulter");
 
 const editAttempts = async (req, res) => {
-	upload(req,res,async(err)=>{
-		if(err){
+	upload(req, res, async (err) => {
+		if (err) {
 			res.status(500).json(err);
 		}
 		try {
-			AttemptSchema.findByIdAndUpdate(req.params.id, req.body, {
-				new: true,
-			})
+			console.clear();
+			console.log("Request", req.file);
+			let attempt = await AttemptSchema.findByIdAndUpdate(
+				req.params.id,
+				req.body,
+				{
+					new: true,
+				},
+			);
+			attempt.zip_files = req.file === undefined ? attempt.zip_files : req.file;
+			attempt
+				.save()
 				.then((data) => {
-					if(data === null) return res.send(404)
+					if (data === null) return res.send(404);
 					res.status(200).send(data);
 				})
 				.catch((err) => {
@@ -20,7 +29,7 @@ const editAttempts = async (req, res) => {
 		} catch (error) {
 			res.status(500).json(error.message);
 		}
-	})
+	});
 };
 
 module.exports = editAttempts;

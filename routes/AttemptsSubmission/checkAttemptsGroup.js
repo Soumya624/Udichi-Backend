@@ -1,7 +1,6 @@
 const AttemptSchemaGroup = require("../../models/AttemptsGroupSchema");
 
 const checkAttemptGroup = async (req, res) => {
-    console.log(req.params)
 	try {
 		AttemptSchemaGroup.findOne({
             candidate : req.params.candidate,
