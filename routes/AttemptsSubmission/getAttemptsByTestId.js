@@ -1,6 +1,6 @@
 const AttemptSchemaGroup = require("../../models/AttemptsGroupSchema");
 
-const createAttemptsGroup = async (req, res) => {
+const getAttemptsByTestId = async (req, res) => {
 	try {
 		let attempt_schema = await AttemptSchemaGroup.find({
 			test: req.body.test,
@@ -13,4 +13,4 @@ const createAttemptsGroup = async (req, res) => {
 	}
 };
 
-module.exports = createAttemptsGroup;
+module.exports = getAttemptsByTestId;
