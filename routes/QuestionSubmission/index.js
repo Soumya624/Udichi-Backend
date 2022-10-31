@@ -3,10 +3,11 @@ const checkQuestionSubmission = require("./checkQuestionSubmission");
 const createQuestionSubmission = require("./createQuestionSubmission");
 const editQuestionSubmission = require("./editQuestionSubmission");
 const getQuestionSubmissionById = require("./getQuestionSubmissionById");
+const authMiddleware = require('../../Middlewares/authMiddleware')
 
-router.post("/", createQuestionSubmission);
-router.get("/check/:test/:question/:candidate/:attempt_id",checkQuestionSubmission)
-router.patch("/:id", editQuestionSubmission);
-router.get("/:id", getQuestionSubmissionById);
+router.post("/",[authMiddleware], createQuestionSubmission);
+router.get("/check/:test/:question/:candidate/:attempt_id",[authMiddleware],checkQuestionSubmission)
+router.patch("/:id",[authMiddleware], editQuestionSubmission);
+router.get("/:id",[authMiddleware], getQuestionSubmissionById);
 
 module.exports = router;

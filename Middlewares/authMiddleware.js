@@ -1,11 +1,19 @@
+const jwt = require("jsonwebtoken")
 const checkToken = (req, res, next) => {
+    console.log(req.headers)
     const header = req.headers['authorization'];
     if(typeof header !== 'undefined') {
         const bearer = header.split(' ');
         const token = bearer[1];
 
         req.token = token;
-        next();
+        jwt.verify(token,'privatekey',(err,data)=>{
+            if(err){
+                res.sendStatus(403);
+            }else{
+                next()
+            }
+        })
     } else {
         res.sendStatus(403)
     }

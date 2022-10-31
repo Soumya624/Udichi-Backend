@@ -7,13 +7,16 @@ const editQuestionGroup = require('./editQuestionGroup')
 const getAllQuestionGroups = require('./getAllQuestionGroups')
 const getQuestionsGroupById = require('./getQuestionsGroupById')
 const router = express.Router()
+const authMiddleware = require('../../Middlewares/authMiddleware')
+const authAdminMiddleware = require('../../Middlewares/authAdminTeacher')
 
-router.get('/',getAllQuestionGroups)
-router.get('/:id',getQuestionsGroupById)
-router.post('/',createQuestionGroup)
-router.post("/create/:id",createQuestionAndAssignQuestionGroup)
-router.patch("/assign/:id",addQuestionToGroup)
-router.patch('/:id',editQuestionGroup)
-router.delete('/:id',deleteQuestionGroup)
+
+router.get('/',[authMiddleware,authAdminMiddleware],getAllQuestionGroups)
+router.get('/:id',[authMiddleware,authAdminMiddleware],getQuestionsGroupById)
+router.post('/',[authMiddleware,authAdminMiddleware],createQuestionGroup)
+router.post("/create/:id",[authMiddleware,authAdminMiddleware],createQuestionAndAssignQuestionGroup)
+router.patch("/assign/:id",[authMiddleware,authAdminMiddleware],addQuestionToGroup)
+router.patch('/:id',[authMiddleware,authAdminMiddleware],editQuestionGroup)
+router.delete('/:id',[authMiddleware,authAdminMiddleware],deleteQuestionGroup)
 
 module.exports = router

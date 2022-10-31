@@ -2,6 +2,7 @@ const Candidate = require("../../models/Candidates");
 const jwt = require("jsonwebtoken");
 
 const getCandidateAllottedTest = async (req, res) => {
+	console.log(req.user_id)
 	try {
 		Candidate.findById(req.user_id)
         .populate({
@@ -13,6 +14,7 @@ const getCandidateAllottedTest = async (req, res) => {
 			}
         })
 			.then((data) => {
+				console.log(data)
 				if (data === null) res.status(404).status("Not found");
 
 				res.status(200).send(data);
