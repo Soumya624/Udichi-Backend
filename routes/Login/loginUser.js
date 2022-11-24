@@ -10,6 +10,8 @@ const login_user = async (req, res) => {
 			email: req.body.email,
 		});
 
+		
+
 		if (user === null) throw new Error("No User found");
 
 		let successfull_login = await bcrypt.compare(
@@ -17,7 +19,8 @@ const login_user = async (req, res) => {
 			user.password,
 		);
 
-		if (successfull_login === null) {
+
+		if (!successfull_login) {
 			throw Error("Password didn't match");
 		}
 
