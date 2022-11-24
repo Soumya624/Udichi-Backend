@@ -23,6 +23,10 @@ const Question_Schema = new Schema({
     negative_marks : {
         type : Number,
         required : true,
+    },
+    type_question : {
+        type : String,
+        required : true
     }
 })
 

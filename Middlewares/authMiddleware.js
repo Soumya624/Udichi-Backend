@@ -1,6 +1,6 @@
 const jwt = require("jsonwebtoken")
 const checkToken = (req, res, next) => {
-    console.log(req.headers)
+    // console.log(req.headers)
     const header = req.headers['authorization'];
     if(typeof header !== 'undefined') {
         const bearer = header.split(' ');
@@ -9,12 +9,15 @@ const checkToken = (req, res, next) => {
         req.token = token;
         jwt.verify(token,'privatekey',(err,data)=>{
             if(err){
+                console.log(err);
                 res.sendStatus(403);
+
             }else{
                 next()
             }
         })
     } else {
+        console.log("kdwd");
         res.sendStatus(403)
     }
 }

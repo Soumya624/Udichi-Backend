@@ -7,10 +7,12 @@ const downloadAttemptsById = async (req, res) => {
         })
 			.then((data) => {
 				if (data === null) return res.status(404).send("Not Found");
-                let zip_file = data.zip_files
+                let zip_file = data.zip_files;
+				console.log(zip_file);
                 res.download(zip_file.path,zip_file.filename);
 			})
 			.catch((err) => {
+				console.log(err);
 				res.status(500).json(err.message);
 			});
 	} catch (error) {
