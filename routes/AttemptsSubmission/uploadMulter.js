@@ -2,7 +2,7 @@ const path = require("path");
 const multer = require("multer");
 
 const storage = multer.diskStorage({
-	destination: "./media/AttemptsZipFile/",
+	destination: "./tmp/media/AttemptsZipFile/",
 	filename: function (req, file, cb) {
 		cb(null, "ATTEMPTS" + Date.now() + path.extname(file.originalname));
 	},
