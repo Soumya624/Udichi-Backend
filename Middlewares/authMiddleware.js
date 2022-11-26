@@ -17,7 +17,6 @@ const checkToken = (req, res, next) => {
             }
         })
     } else {
-        console.log("kdwd");
         res.sendStatus(403)
     }
 }
