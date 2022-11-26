@@ -37,6 +37,21 @@ const candidateSchema = mongoose.Schema({
 		type: String,
 		default: "Candidate",
 	},
+	street : {
+		type : String
+	},
+	city : {
+		type : String
+	},
+	state : {
+		type : String
+	},
+	country : {
+		type : String
+	},
+	zip : {
+		type : String
+	},
 	candidate_group: {
 		type: mongoose.Schema.Types.ObjectId,
 		ref: "candidates_group_schema",

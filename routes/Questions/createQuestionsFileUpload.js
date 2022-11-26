@@ -7,11 +7,9 @@ const QuestionsGroup = require("../../models/QuestionsGroup");
 const createQuestionsFromFileUpload = async (req, res) => {
 	uploadMulter(req, res, async (err) => {
 		if (err) {
-			console.log(err)
 			res.status(500).json(err);
 		} else {
 			try {
-				console.log(req.file)
 				const workbook = XLSX.readFile(`${req.file.destination}${req.file.filename}`);
 				const sheet_name_list = workbook.SheetNames;
 
@@ -19,7 +17,7 @@ const createQuestionsFromFileUpload = async (req, res) => {
 					workbook.Sheets[sheet_name_list[0]],
 				);
 				let question_group = await QuestionsGroup({
-					title: "Group 1",
+					title: req.body.title,
 				}).populate({
 					path: "questions",
 					model: "question_schema",
@@ -32,7 +30,6 @@ const createQuestionsFromFileUpload = async (req, res) => {
 				question_group.save();
 
 				for (let xld of xlData) {
-					console.log(xld.No);
 					let question_type = xld.QuestionType;
 					let question_title = xld.Question;
 					let correct_answer = String(xld.correctanswer).replace(/\s/g, "");
@@ -65,7 +62,6 @@ const createQuestionsFromFileUpload = async (req, res) => {
 
 						let option_obj = await Options(option_list);
 						option_obj.save();
-						console.log(option_obj._id);
 						question_obj.options.push(option_obj._id);
 					}
 
