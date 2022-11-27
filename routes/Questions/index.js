@@ -5,9 +5,11 @@ const getQuestionById = require("./getQuestionsById");
 const editQuestions = require("./editQuestions");
 const deleteQuestions = require("./deleteQuestions");
 const authMiddleware = require('../../Middlewares/authMiddleware')
-const authAdminMiddleware = require('../../Middlewares/authAdminTeacher')
+const authAdminMiddleware = require('../../Middlewares/authAdminTeacher');
+const createQuestionsFromFileUpload = require("./createQuestionsFileUpload");
 
 
+router.post('/file-upload',createQuestionsFromFileUpload)
 router.post('/',[authMiddleware,authAdminMiddleware],createQuestions)
 router.get('/:id',[authMiddleware,authAdminMiddleware],getQuestionById)
 router.patch('/:id',[authMiddleware,authAdminMiddleware],editQuestions)

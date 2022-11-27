@@ -1,8 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const path = require("path");
 const bodyParser = require("body-parser");
-const multer = require("multer");
 const cors = require("cors");
 const app = express();
 const signup = require("./routes/Signup/index");
@@ -39,6 +37,8 @@ app.get("/", (req, res) => {
 
 mongoose.connect("mongodb+srv://user1:hH0daYK4xW4qsDl9@cluster0.gco9idg.mongodb.net/?retryWrites=true&w=majority", () => {
 	console.log("Connected to MongoDB");
+	console.log(mongoose.connection.readyState)
 });
+
 
 app.listen(5000);
