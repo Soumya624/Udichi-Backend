@@ -35,7 +35,7 @@ app.get("/", (req, res) => {
 });
 //mongodb+srv://user1:hH0daYK4xW4qsDl9@cluster0.gco9idg.mongodb.net/?retryWrites=true&w=majority
 
-mongoose.connect("mongodb://localhost:27017/udichi", () => {
+mongoose.connect("mongodb+srv://user1:hH0daYK4xW4qsDl9@cluster0.gco9idg.mongodb.net/?retryWrites=true&w=majority", () => {
 	console.log("Connected to MongoDB");
 	console.log(mongoose.connection.readyState)
 });
