@@ -14,6 +14,8 @@ const candidate_group = require("./routes/CandidatesGroup/index");
 const candidates = require("./routes/Candidates/index");
 const question_submission = require("./routes/QuestionSubmission/index");
 const attempt_submission = require("./routes/AttemptsSubmission/index");
+const proctorer = require('./routes/Proctorer/index')
+const assessor = require('./routes/Assessor/index')
 
 
 app.use(bodyParser.json());
@@ -30,12 +32,16 @@ app.use("/candidate_group", candidate_group);
 app.use("/candidate", candidates);
 app.use("/question_submission", question_submission);
 app.use("/attempts", attempt_submission);
+app.use("/proctorer",proctorer)
+app.use("/assessor",assessor)
+
+
 app.get("/", (req, res) => {
 	res.send("We are on Backend Server");
 });
 //mongodb+srv://user1:hH0daYK4xW4qsDl9@cluster0.gco9idg.mongodb.net/?retryWrites=true&w=majority
-
-mongoose.connect("mongodb+srv://user1:hH0daYK4xW4qsDl9@cluster0.gco9idg.mongodb.net/?retryWrites=true&w=majority", () => {
+// mongodb://localhost:27017/udichi
+mongoose.connect("mongodb://localhost:27017/udichi", () => {
 	console.log("Connected to MongoDB");
 	console.log(mongoose.connection.readyState)
 });

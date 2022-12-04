@@ -10,7 +10,7 @@ const authAdminMiddleware = require('../../Middlewares/authAdminTeacher')
 const createCandidatesFromFileUpload = require('./createCandidatesGroupFileUpload')
 
 router.post('/file-upload',createCandidatesFromFileUpload)
-router.post('/',[authMiddleware,authAdminMiddleware],createCandidateGroup)
+router.post('/',createCandidateGroup)
 router.patch('/:id',[authMiddleware,authAdminMiddleware],editCandidateGroup)
 router.get('/all',[authMiddleware,authAdminMiddleware],getAllCandidatesGroups)
 router.get('/:id',[authMiddleware,authAdminMiddleware],getCandidateGroupById)

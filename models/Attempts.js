@@ -21,6 +21,14 @@ const AttemptSchema = new Schema({
 		},
 	],
 	zip_files: {},
+	is_started : {
+		type : Boolean,
+		default : false
+	},
+	is_submitted : {
+		type : Boolean,
+		default : false
+	}
 });
 
 module.exports = mongoose.model("attempt_schema", AttemptSchema);

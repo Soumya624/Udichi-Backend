@@ -10,8 +10,11 @@ const editAttempts = require("./editAttempts");
 const editAttemptsGroup = require("./editAttemptsGroup");
 const getAttemptsById = require("./getAttemptsById");
 const getAttemptsByTestId = require("./getAttemptsByTestId");
-const authMiddleware = require("../../Middlewares/authMiddleware")
+const authMiddleware = require("../../Middlewares/authMiddleware");
+const getActiveCandidates = require("./getActiveCandidates");
 
+
+router.get('/active_test',getActiveCandidates)
 router.get("/download/:id",[authMiddleware],downloadAttemptsById)
 router.get("/attempts_group/:test",[authMiddleware], getAttemptsByTestId);
 router.get("/attempt/:id/:candidate",[authMiddleware], getAttemptsById);

@@ -32,6 +32,10 @@ const TestSchema = new Schema({
 		type : Number,
 		default : 1
 	},
+	proctoring:{
+		type : Boolean,
+		default : true
+	},
 	candidates_groups : [
 		{
 			type : Schema.Types.ObjectId,
