@@ -6,7 +6,6 @@ const editAttemptsGroup = async (req, res) => {
 			new: true,
 		})
 			.then((data) => {
-				console.log(data)
                 if (data === null) return res.status(404).send("Not Found");
 				res.status(201).send(data);
 			})

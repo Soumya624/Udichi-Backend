@@ -9,7 +9,7 @@ const authAdminMiddleware = require('../../Middlewares/authAdminTeacher');
 const createQuestionsFromFileUpload = require("./createQuestionsFileUpload");
 
 
-router.post('/file-upload',createQuestionsFromFileUpload)
+router.post('/file-upload',[authAdminMiddleware,authMiddleware],createQuestionsFromFileUpload)
 router.post('/',[authMiddleware,authAdminMiddleware],createQuestions)
 router.get('/:id',[authMiddleware,authAdminMiddleware],getQuestionById)
 router.patch('/:id',[authMiddleware,authAdminMiddleware],editQuestions)

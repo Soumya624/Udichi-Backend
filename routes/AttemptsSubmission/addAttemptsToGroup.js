@@ -1,7 +1,6 @@
 const AttemptSchemaGroup = require("../../models/AttemptsGroupSchema");
 
 const addAttemptsToGroup = async (req, res) => {
-	console.log(req.body)
 	try {
 		AttemptSchemaGroup.findByIdAndUpdate(req.params.id, {
             $addToSet : {
@@ -11,7 +10,6 @@ const addAttemptsToGroup = async (req, res) => {
 			new: true,
 		})
 			.then((data) => {
-				console.log(data)
                 if (data === null) return res.status(404).send("Not Found");
 				res.status(201).send(data);
 			})

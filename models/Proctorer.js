@@ -35,7 +35,7 @@ const proctorerSchema = mongoose.Schema({
 	},
 	usertype: {
 		type: String,
-		default: "Candidate",
+		default: "Proctorer",
 	},
 	street : {
 		type : String

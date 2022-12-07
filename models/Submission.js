@@ -33,6 +33,10 @@ const QuestionSubmissionSchema = new Schema({
 	status: {
 		type: String,
 	},
+	marks_obtained : {
+		type : Number,
+		default : 0
+	}
 });
 
 module.exports = mongoose.model(

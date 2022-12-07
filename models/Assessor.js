@@ -35,7 +35,7 @@ const assessorSchema = mongoose.Schema({
 	},
 	usertype: {
 		type: String,
-		default: "Candidate",
+		default: "Assessor",
 	},
 	street : {
 		type : String

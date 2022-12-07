@@ -27,6 +27,9 @@ const Question_Schema = new Schema({
     type_question : {
         type : String,
         required : true
+    },
+    number_of_correct_options : {
+        type : Number
     }
 })
 

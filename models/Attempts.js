@@ -28,6 +28,9 @@ const AttemptSchema = new Schema({
 	is_submitted : {
 		type : Boolean,
 		default : false
+	},
+	marks_obtained : {
+		type : Number,
 	}
 });
 

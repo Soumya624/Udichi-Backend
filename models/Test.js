@@ -34,7 +34,7 @@ const TestSchema = new Schema({
 	},
 	proctoring:{
 		type : Boolean,
-		default : true
+		default : false
 	},
 	candidates_groups : [
 		{

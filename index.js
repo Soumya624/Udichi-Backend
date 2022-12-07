@@ -16,6 +16,7 @@ const question_submission = require("./routes/QuestionSubmission/index");
 const attempt_submission = require("./routes/AttemptsSubmission/index");
 const proctorer = require('./routes/Proctorer/index')
 const assessor = require('./routes/Assessor/index')
+const result = require('./routes/Result/index')
 
 
 app.use(bodyParser.json());
@@ -34,6 +35,7 @@ app.use("/question_submission", question_submission);
 app.use("/attempts", attempt_submission);
 app.use("/proctorer",proctorer)
 app.use("/assessor",assessor)
+app.use('/result',result)
 
 
 app.get("/", (req, res) => {
