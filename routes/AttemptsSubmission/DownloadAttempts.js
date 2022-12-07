@@ -8,7 +8,7 @@ const downloadAttemptsById = async (req, res) => {
 			.then((data) => {
 				if (data === null) return res.status(404).send("Not Found");
                 let zip_file = data.zip_files;
-				console.log(zip_file);
+				if(zip_file === undefined) return res.status(404).send("Not file Found")
                 res.download(zip_file.path,zip_file.filename);
 			})
 			.catch((err) => {

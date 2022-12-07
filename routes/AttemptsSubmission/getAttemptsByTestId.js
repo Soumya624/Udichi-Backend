@@ -1,7 +1,6 @@
 const AttemptSchemaGroup = require("../../models/AttemptsGroupSchema");
 
 const getAttemptsByTestId = async (req, res) => {
-	console.log(req.params)
 	try {
 		let attempt_schema = await AttemptSchemaGroup.find({
 			test: req.params.test,
@@ -10,11 +9,11 @@ const getAttemptsByTestId = async (req, res) => {
 			path : "candidate",
 			model : "candidate_schema"
 		})
-		if (attempt_schema.length === 0) res.status(404).send("Not Found");
+		if (attempt_schema.length === 0) return res.status(404).send("Not Found");
 
-		res.status(200).send(attempt_schema);
+		return res.status(200).send(attempt_schema);
 	} catch (error) {
-		res.status(500).json(error.message);
+		return res.status(500).send(error.message);
 	}
 };
 
