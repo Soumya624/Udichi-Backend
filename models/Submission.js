@@ -36,6 +36,9 @@ const QuestionSubmissionSchema = new Schema({
 	marks_obtained : {
 		type : Number,
 		default : 0
+	},
+	number_of_correct_options : {
+		type : Number
 	}
 });
 

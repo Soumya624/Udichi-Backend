@@ -17,6 +17,7 @@ const createTest = async (req, res) => {
 						alloted_test: test,
 					},
 				});
+				if(candidate === null) continue;
                 candidate.save()
 			}
 		}
@@ -30,6 +31,7 @@ const createTest = async (req, res) => {
 				return res.status(500).send(err);
 			});
 	} catch (error) {
+		console.log(error)
 		res.status(500).send("Error");
 	}
 };

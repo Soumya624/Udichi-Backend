@@ -3,6 +3,6 @@ const getResultByAttemptsIdAndTestId = require('./getResultByAttemptsIdAndTestId
 const router = express.Router()
 
 
-router.get('/:test_id/:question_id',getResultByAttemptsIdAndTestId)
+router.patch('/:test_id/:attempt_id',getResultByAttemptsIdAndTestId)
 
 module.exports = router

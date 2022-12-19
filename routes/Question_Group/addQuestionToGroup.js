@@ -1,9 +1,7 @@
 const Question_Group = require("../../models/QuestionsGroup");
 
 const addQuestionToGroup = async (req, res) => {
-	console.log(req.body);
 	try {
-		console.log(req.params.id);
 		let question_group = await Question_Group.findByIdAndUpdate(
 			req.params.id,
 			{

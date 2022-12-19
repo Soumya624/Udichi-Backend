@@ -13,7 +13,6 @@ const createQuestionAndAssignQuestionGroup = async (req, res) => {
 			option_list_id.push(option._id);
 		}
 		question.options = option_list_id;
-        console.log(option_list_id)
 		let question_obj = await Questions(question);
 		question_obj.save();
 		let question_group = await Question_Group.findByIdAndUpdate(
