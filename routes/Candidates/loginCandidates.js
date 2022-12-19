@@ -17,7 +17,7 @@ const login_user = async (req, res) => {
 			candidate.password,
 		);
 
-		if (successfull_login === null) {
+		if (successfull_login === null || successfull_login === false) {
 			throw Error("Password didn't match");
 		}
 
