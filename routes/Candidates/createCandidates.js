@@ -1,6 +1,7 @@
 const bcrypt = require("bcrypt");
 const Candidates = require("../../models/Candidates");
 const Candidates_Group_Schema = require("../../models/CandidatesGroup");
+const Test = require("../../models/Test");
 
 const createCandidate = async (req, res) => {
 	try {
@@ -18,6 +19,9 @@ const createCandidate = async (req, res) => {
 		req.body.aadharnumber = hashedAadharNumber;
 
 		const candidate = await Candidates(req.body);
+		const test = await Test.find({candidates_groups : req.body.candidate_group})
+		candidate.attempted_test = test
+		
 		candidate
 			.save()
 			.then(async (data) => {
