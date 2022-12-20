@@ -15,7 +15,7 @@ const getActiveCandidates = require("./getActiveCandidates");
 const getAttemptGroupById = require("./getAttemptsGroupById");
 
 
-router.get('/attempts_groups/:id',getAttemptGroupById)
+router.get('/attempts_groups/:id',[authMiddleware],getAttemptGroupById)
 router.get('/active_test',[authMiddleware],getActiveCandidates)
 router.get("/download/:id",[authMiddleware],downloadAttemptsById)
 router.get("/attempts_group/:test",[authMiddleware], getAttemptsByTestId);
