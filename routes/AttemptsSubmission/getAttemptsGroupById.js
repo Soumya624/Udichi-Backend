@@ -2,7 +2,6 @@ const AttemptSchemaGroup = require("../../models/AttemptsGroupSchema");
 
 const getAttemptGroupById = async (req, res) => {
 	try {
-        console.log(req.params)
 		let attempt_schema = await AttemptSchemaGroup.findById(req.params.id)
 		.populate({
 			path : "candidate",
@@ -10,7 +9,7 @@ const getAttemptGroupById = async (req, res) => {
 		})
         .populate({
             path : "attempts_submitted",
-            model : "attempt_schema"
+            model : "attempt_schema",
         })
 		if (!attempt_schema) return res.status(404).send("Not Found");
 
