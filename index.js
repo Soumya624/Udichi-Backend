@@ -49,4 +49,4 @@ mongoose.connect("mongodb+srv://user1:hH0daYK4xW4qsDl9@cluster0.gco9idg.mongodb.
 });
 
 
-app.listen(5000);
+app.listen(process.env.PORT || 5000);
